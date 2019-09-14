@@ -20,7 +20,7 @@ public class Disciplina {
 	private String id;
 	private String nome;
 	
-	@ManyToMany
+	@ManyToMany(cascade = CascadeType.ALL)
 	@JoinTable(name="ministrantes",
 			joinColumns = { @JoinColumn(name = "disciplina_id") },
 			inverseJoinColumns = { @JoinColumn(name = "ministrantes_id") })

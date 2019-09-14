@@ -1,4 +1,4 @@
-package aula20190830.br.unicesumar.professor;
+package aula20190830.br.unicesumar.socio.controller;
 
 import java.util.List;
 
@@ -12,51 +12,37 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import aula20190830.br.unicesumar.socio.Socio;
+import aula20190830.br.unicesumar.socio.repository.SocioRepository;
+
 @RestController
-@RequestMapping("/api/professores")
-public class ProfessorController {
+@RequestMapping("/api/socios")
+public class SocioController {
 	@Autowired
-	private ProfessorRepository repo;
+	private SocioRepository repo;
 	
 	@GetMapping
-	public List<Professor> get() {
+	public List<Socio> get() {
 		return repo.findAll();
 	}
 	@GetMapping("/{id}")
-	public Professor get(@PathVariable String id) {
+	public Socio get(@PathVariable String id) {
 		return repo.findById(id).get();
 	}
 	@PostMapping
-	public String post(@RequestBody Professor novo) {
+	public String post(@RequestBody Socio novo) {
 		repo.save(novo);
 		return novo.getId();
 	}
 	@PutMapping("/{id}")
-	public void get(@PathVariable String id, @RequestBody Professor professor) {
-		if (!id.equals(professor.getId())) {
+	public void get(@PathVariable String id, @RequestBody Socio socio) {
+		if (!id.equals(socio.getId())) {
 			throw new RuntimeException("Ids devem ser iguais!");
 		}
-		repo.save(professor);
+		repo.save(socio);
 	}
 	@DeleteMapping("/{id}")
 	public void delete(@PathVariable String id) {
 		repo.deleteById(id);
 	}
-	@DeleteMapping("/{id}/enderecos/{idEndereco}")
-	public void deleteEndereco(@PathVariable("id") String id, @PathVariable("idEndereco") String idEndereco) {
-		Professor p = repo.findById(id).get();
-		p.removerEnderecoPeloId(idEndereco);
-		repo.save(p);
-	}	
 }
-
-
-
-
-
-
-
-
-
-
-

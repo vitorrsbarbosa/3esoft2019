@@ -1,4 +1,4 @@
-package aula20190906.br.unicesumar.produto;
+package aula20190830.br.unicesumar.produto;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;

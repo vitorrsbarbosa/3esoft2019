@@ -3,7 +3,6 @@ package aula20190830.br.unicesumar.professor;
 import java.util.UUID;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 @Entity

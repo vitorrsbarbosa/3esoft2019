@@ -1,6 +1,6 @@
-package aula20190906.br.unicesumar.pedido;
+package aula20190830.br.unicesumar.pedido;
 
-import aula20190906.br.unicesumar.produto.Produto;
+import aula20190830.br.unicesumar.produto.Produto;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -23,6 +23,10 @@ public class ItemPedido {
         this.id = UUID.randomUUID().toString();
     }
 
+    public void setProduto(Produto produto) {
+        this.produto = produto;
+    }
+
     public String getId() {
         return id;
     }
@@ -37,6 +41,10 @@ public class ItemPedido {
 
     public Double getDescontoPercentual() {
         return descontoPercentual;
+    }
+
+    public Produto getProduto() {
+        return produto;
     }
 
 }

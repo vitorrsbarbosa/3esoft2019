@@ -1,4 +1,4 @@
-package br.unicesumar.aula20191004;
+package br.unicesumar.aula20191004.utilidades;
 
 public class Utilidades {
 

@@ -4,6 +4,9 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
+import br.unicesumar.aula20191004.pedido.Pedido;
+import br.unicesumar.aula20191004.utilidades.Utilidades;
+
 public class TestesBásicos {
 
 	@Test
@@ -61,32 +64,25 @@ public class TestesBásicos {
 	@Test
 	public void testar_total_do_pedido() {
 		Pedido p1 = new Pedido(125); //Pedido(numero)
-		p1.adicionarItem("Omo",10.00, 20.00, 0.00); // (produto, quantidade, valorUnitario, descontoPercentual)
-		p1.adicionarItem("Soja",20.00, 25.00, 10.00); // (produto, quantidade, valorUnitario, descontoPercentual)
+		p1.adicionarItem("Omo",10, 20.00, 0.00); // (produto, quantidade, valorUnitario, descontoPercentual)
+		p1.adicionarItem("Soja",20, 25.00, 10.00); // (produto, quantidade, valorUnitario, descontoPercentual)
 		
 		assertEquals(650.00, p1.getValorTotal(), 0.00);
 		assertEquals(2, p1.contarItens());
-		assertEquals(10.00, p1.getItem("Omo").getQuantidade(), 0.00);
-		assertEquals(20.00, p1.getItem("Soja").getQuantidade(), 0.00);
+		assertEquals(10, p1.getItem("Omo").getQuantidade(), 0.00);
+		assertEquals(20, p1.getItem("Soja").getQuantidade(), 0.00);
 
 		Pedido p2 = new Pedido(126); //Pedido(numero)
-		p2.adicionarItem("Cuscuz",1.00, 2.50, 0.00); // (produto, quantidade, valorUnitario, descontoPercentual)
-		p2.adicionarItem("Jambu",2.00, 10.00, 20.00); // (produto, quantidade, valorUnitario, descontoPercentual)
-		p2.adicionarItem("Omo",1.00, 1.00, 0.00); // (produto, quantidade, valorUnitario, descontoPercentual)
+		p2.adicionarItem("Cuscuz",1, 2.50, 0.00); // (produto, quantidade, valorUnitario, descontoPercentual)
+		p2.adicionarItem("Jambu",2, 10.00, 20.00); // (produto, quantidade, valorUnitario, descontoPercentual)
+		p2.adicionarItem("Omo",1, 1.00, 0.00); // (produto, quantidade, valorUnitario, descontoPercentual)
 		
 		assertEquals(19.50, p2.getValorTotal(), 0.00);
 		assertEquals(3, p2.contarItens());
-		assertEquals(1.00, p2.getItem("Cuscuz").getQuantidade(), 0.00);
-		assertEquals(2.00, p2.getItem("Jambu").getQuantidade(), 0.00);
-		assertEquals(1.00, p2.getItem("Omo").getQuantidade(), 0.00);
+		assertEquals(1, p2.getItem("Cuscuz").getQuantidade(), 0.00);
+		assertEquals(2, p2.getItem("Jambu").getQuantidade(), 0.00);
+		assertEquals(1, p2.getItem("Omo").getQuantidade(), 0.00);
 		
 	}
 
 }
-
-
-
-
-
-
-

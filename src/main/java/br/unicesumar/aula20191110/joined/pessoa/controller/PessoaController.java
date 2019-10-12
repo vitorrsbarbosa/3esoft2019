@@ -1,7 +1,7 @@
 package br.unicesumar.aula20191110.joined.pessoa.controller;
 
-import br.unicesumar.aula20191110.joined.pessoa.Fisica;
-import br.unicesumar.aula20191110.joined.pessoa.Juridica;
+import br.unicesumar.aula20191110.joined.pessoa.fisica.Fisica;
+import br.unicesumar.aula20191110.joined.pessoa.juridica.Juridica;
 import br.unicesumar.aula20191110.joined.pessoa.Pessoa;
 import br.unicesumar.aula20191110.joined.pessoa.repository.PessoaRepository;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,4 +1,4 @@
-package aula20190521.v1.pessoa;
+package br.unicesumar.pessoa;
 
 import java.util.HashSet;
 import java.util.Set;

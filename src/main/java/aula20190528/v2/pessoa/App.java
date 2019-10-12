@@ -1,4 +1,4 @@
-package aula20190528.v2.pessoa;
+package br.unicesumar.pessoa;
 
 import java.util.Map;
 

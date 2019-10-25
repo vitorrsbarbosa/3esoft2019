@@ -1,15 +1,15 @@
-package br.unicesumar.aula20191110.single_table;
+package br.unicesumar.aula20191110.single_table.pessoa;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Inheritance;
-import javax.persistence.InheritanceType;
+import javax.persistence.*;
 
 @Entity
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(name = "discriminator")
 public abstract class Pessoa {
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private String id;
+    @Column
     private String nome;
 
     public String getId() {

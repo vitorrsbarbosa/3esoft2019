@@ -1,13 +1,13 @@
-package br.unicesumar.aula20191110.single_table;
+package br.unicesumar.aula20191110.single_table.fisica;
 
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import br.unicesumar.aula20191110.single_table.pessoa.Pessoa;
+
+import javax.persistence.*;
 import java.util.Date;
 
 @Entity
-@Table()
 public class Fisica extends Pessoa {
-
+    @Column
     private Date nascidaEm;
 
     public Date getNascidaEm() {

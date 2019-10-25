@@ -1,6 +1,6 @@
 package br.unicesumar.aula20191110.joined.pessoa.juridica;
 
-import br.unicesumar.aula20191110.joined.pessoa.Pessoa;
+import br.unicesumar.aula20191110.joined.pessoa.pessoa.Pessoa;
 
 import javax.persistence.Entity;
 import java.util.Date;

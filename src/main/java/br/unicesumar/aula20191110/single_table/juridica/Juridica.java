@@ -1,12 +1,16 @@
-package br.unicesumar.aula20191110.table_per_class;
+package br.unicesumar.aula20191110.single_table.juridica;
 
+import br.unicesumar.aula20191110.single_table.pessoa.Pessoa;
+
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import java.util.Date;
 
 @Entity
 public class Juridica extends Pessoa {
-
+    @Column(unique = true)
     private String razaoSocial;
+    @Column
     private Date fundadaEm;
 
     public String getRazaoSocial() {

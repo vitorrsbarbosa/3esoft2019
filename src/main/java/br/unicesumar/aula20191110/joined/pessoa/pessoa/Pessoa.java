@@ -1,4 +1,4 @@
-package br.unicesumar.aula20191110.joined.pessoa;
+package br.unicesumar.aula20191110.joined.pessoa.pessoa;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;

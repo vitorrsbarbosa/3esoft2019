@@ -42,9 +42,9 @@ public abstract class Pessoa {
 			return false;
 		br.unicesumar.aula20190528.v2.pessoa.Pessoa other = (br.unicesumar.aula20190528.v2.pessoa.Pessoa) obj;
 		if (id == null) {
-			if (other.id != null)
+			if (other.getId() != null)
 				return false;
-		} else if (!id.equals(other.id))
+		} else if (!id.equals(other.getId()))
 			return false;
 		return true;
 	}

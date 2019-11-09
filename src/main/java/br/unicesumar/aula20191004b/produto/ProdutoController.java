@@ -1,4 +1,4 @@
-package br.unicesumar.aula20191104.produto;
+package br.unicesumar.aula20191004b.produto;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;

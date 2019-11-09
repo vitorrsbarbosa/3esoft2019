@@ -1,4 +1,4 @@
-package br.unicesumar.aula20191110.joined.pessoa;
+package br.unicesumar.aula20191010.joined.pessoa;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

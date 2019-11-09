@@ -1,4 +1,4 @@
-package br.unicesumar.aula20191104;
+package br.unicesumar.aula20191004b;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

@@ -1,4 +1,4 @@
-package br.unicesumar.aula20191110.table_per_class;
+package br.unicesumar.aula20191010.table_per_class;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

@@ -1,6 +1,6 @@
-package br.unicesumar.aula20191110.table_per_class.juridica;
+package br.unicesumar.aula20191010.table_per_class.juridica;
 
-import br.unicesumar.aula20191110.table_per_class.pessoa.Pessoa;
+import br.unicesumar.aula20191010.table_per_class.pessoa.Pessoa;
 
 import javax.persistence.Entity;
 import java.util.Date;

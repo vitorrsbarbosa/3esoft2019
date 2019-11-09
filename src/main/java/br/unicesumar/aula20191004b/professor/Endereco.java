@@ -1,4 +1,4 @@
-package br.unicesumar.aula20191104.professor;
+package br.unicesumar.aula20191004b.professor;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;

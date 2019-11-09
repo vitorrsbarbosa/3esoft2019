@@ -23,7 +23,7 @@ public class Juridica extends br.unicesumar.aula20190528.v2.pessoa.Pessoa {
 		this.cnpj = cnpj;
 		this.capitalSocial = capitalSocial;
 	}
-	public void adicionarSocio(br.unicesumar.aula20190528.v2.pessoa.Pessoa socio, PercentualDeParticipacao percentualDeParticipacao) {
+	public void adicionarSocio(Pessoa socio, double percentualDeParticipacao) {
 		CotaSociedade novaCota = new CotaSociedade();
 		novaCota.socio = socio;
 		novaCota.percentualDeParticipacao = percentualDeParticipacao;

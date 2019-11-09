@@ -1,4 +1,4 @@
-package br.unicesumar.aula20191110.single_table.pessoa;
+package br.unicesumar.aula20191010.single_table.pessoa;
 
 import javax.persistence.*;
 

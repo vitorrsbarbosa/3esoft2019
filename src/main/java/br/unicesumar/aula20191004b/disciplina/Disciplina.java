@@ -1,6 +1,6 @@
-package br.unicesumar.aula20191104.disciplina;
+package br.unicesumar.aula20191004b.disciplina;
 
-import br.unicesumar.aula20191104.professor.Professor;
+import br.unicesumar.aula20191004b.professor.Professor;
 
 import javax.persistence.*;
 import java.util.HashSet;

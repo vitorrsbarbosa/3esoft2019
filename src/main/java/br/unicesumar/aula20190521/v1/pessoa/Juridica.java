@@ -88,9 +88,5 @@ public class Juridica extends br.unicesumar.aula20190528.v2.pessoa.Pessoa {
 		private br.unicesumar.aula20190528.v2.pessoa.Juridica getOuterType() {
 			return br.unicesumar.aula20190528.v2.pessoa.Juridica.this;
 		}
-		
-		
-		
 	}
-
 }

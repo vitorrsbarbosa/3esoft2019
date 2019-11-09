@@ -1,4 +1,4 @@
-package br.unicesumar.aula20191104.disciplina;
+package br.unicesumar.aula20191004b.disciplina;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

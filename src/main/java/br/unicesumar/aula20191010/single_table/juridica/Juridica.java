@@ -1,6 +1,6 @@
-package br.unicesumar.aula20191110.single_table.juridica;
+package br.unicesumar.aula20191010.single_table.juridica;
 
-import br.unicesumar.aula20191110.single_table.pessoa.Pessoa;
+import br.unicesumar.aula20191010.single_table.pessoa.Pessoa;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

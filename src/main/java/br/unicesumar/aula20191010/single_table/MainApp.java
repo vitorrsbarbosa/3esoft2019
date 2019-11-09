@@ -1,4 +1,4 @@
-package br.unicesumar.aula20191110.single_table;
+package br.unicesumar.aula20191010.single_table;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

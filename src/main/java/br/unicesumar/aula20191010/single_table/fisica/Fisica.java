@@ -1,6 +1,6 @@
-package br.unicesumar.aula20191110.single_table.fisica;
+package br.unicesumar.aula20191010.single_table.fisica;
 
-import br.unicesumar.aula20191110.single_table.pessoa.Pessoa;
+import br.unicesumar.aula20191010.single_table.pessoa.Pessoa;
 
 import javax.persistence.*;
 import java.util.Date;

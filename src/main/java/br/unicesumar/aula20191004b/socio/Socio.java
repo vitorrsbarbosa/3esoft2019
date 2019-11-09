@@ -1,6 +1,6 @@
-package br.unicesumar.aula20191104.socio;
+package br.unicesumar.aula20191004b.socio;
 
-import br.unicesumar.aula20191104.empresa.Empresa.ContratoSocial;
+import br.unicesumar.aula20191004b.empresa.Empresa.ContratoSocial;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.Entity;

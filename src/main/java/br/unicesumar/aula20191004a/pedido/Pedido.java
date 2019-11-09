@@ -1,4 +1,4 @@
-package br.unicesumar.aula20191004.pedido;
+package br.unicesumar.aula20191004a.pedido;
 
 public class Pedido {
     private int idPedido;

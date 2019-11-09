@@ -1,6 +1,6 @@
-package br.unicesumar.aula20191110.joined.pessoa.fisica;
+package br.unicesumar.aula20191010.joined.pessoa.fisica;
 
-import br.unicesumar.aula20191110.joined.pessoa.pessoa.Pessoa;
+import br.unicesumar.aula20191010.joined.pessoa.pessoa.Pessoa;
 
 import javax.persistence.Entity;
 import javax.persistence.Table;

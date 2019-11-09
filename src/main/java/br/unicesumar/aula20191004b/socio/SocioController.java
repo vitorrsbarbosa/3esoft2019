@@ -1,4 +1,4 @@
-package br.unicesumar.aula20191104.socio;
+package br.unicesumar.aula20191004b.socio;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;

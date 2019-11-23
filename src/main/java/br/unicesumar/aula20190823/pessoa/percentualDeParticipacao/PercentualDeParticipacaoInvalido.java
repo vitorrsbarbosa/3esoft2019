@@ -1,4 +1,4 @@
-package br.unicesumar.aula20190823.pessoa;
+package br.unicesumar.aula20190823.pessoa.percentualDeParticipacao;
 
 public class PercentualDeParticipacaoInvalido extends RuntimeException {
 

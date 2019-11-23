@@ -1,6 +1,6 @@
 package br.unicesumar.aula20190528.v2.pessoa;
 
-import br.unicesumar.aula20190823.pessoa.PercentualDeParticipacao;
+import br.unicesumar.aula20190823.pessoa.percentualDeParticipacao.PercentualDeParticipacao;
 
 import java.util.HashMap;
 import java.util.HashSet;
@@ -8,7 +8,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.UUID;
 
-public class Juridica extends br.unicesumar.aula20190528.v2.pessoa.Pessoa {
+public class Juridica extends Pessoa {
 	private String cnpj;
 	private double capitalSocial;
 	private Set<CotaSociedade> cotasSociedade = new HashSet<>();
@@ -23,18 +23,18 @@ public class Juridica extends br.unicesumar.aula20190528.v2.pessoa.Pessoa {
 		this.cnpj = cnpj;
 		this.capitalSocial = capitalSocial;
 	}
-	public void adicionarSocio(Pessoa socio, double percentualDeParticipacao) {
+	public void adicionarSocio(Pessoa socio, PercentualDeParticipacao percentualDeParticipacao) {
 		CotaSociedade novaCota = new CotaSociedade();
 		novaCota.socio = socio;
 		novaCota.percentualDeParticipacao = percentualDeParticipacao;
-		
+
 		double percentualAtual = somarPercentualAtual();
 		/*
 		if (percentualAtual + percentualDeParticipacao > 100.00) {
 			throw new RuntimeException("A participaço total n�o pode exceder 100%! Percentual atual: " + percentualAtual + ". Voc� tentou adicionar mais " + percentualDeParticipacao);
 		}
 		*/
-		
+
 		this.cotasSociedade.add(novaCota);
 	}
 	private double somarPercentualAtual() {
@@ -44,14 +44,14 @@ public class Juridica extends br.unicesumar.aula20190528.v2.pessoa.Pessoa {
 		}
 		return percentualAtual;
 	}
-	public Map<br.unicesumar.aula20190528.v2.pessoa.Pessoa, PercentualDeParticipacao> getCotasSociedade() {
-		Map<br.unicesumar.aula20190528.v2.pessoa.Pessoa, PercentualDeParticipacao> cotas = new HashMap<>();
+	public Map<Pessoa, PercentualDeParticipacao> getCotasSociedade() {
+		Map<Pessoa, PercentualDeParticipacao> cotas = new HashMap<>();
 		for (CotaSociedade cota : cotasSociedade) {
 			cotas.put(cota.socio, cota.percentualDeParticipacao);
 		}
 		return cotas;
 	}
-	public void removerSocio(br.unicesumar.aula20190528.v2.pessoa.Pessoa socioParaRemover) {
+	public void removerSocio(Pessoa socioParaRemover) {
 		Set<CotaSociedade> aux = new HashSet<>();
 		for (CotaSociedade cota : cotasSociedade) {
 			if (!cota.socio.equals(socioParaRemover)) {
@@ -66,7 +66,7 @@ public class Juridica extends br.unicesumar.aula20190528.v2.pessoa.Pessoa {
 	public String getCnpj() {
 		return cnpj;
 	}
-	
+
 	private class CotaSociedade {
 		private PercentualDeParticipacao percentualDeParticipacao;
 		private Pessoa socio;
@@ -99,9 +99,5 @@ public class Juridica extends br.unicesumar.aula20190528.v2.pessoa.Pessoa {
 		private Juridica getOuterType() {
 			return Juridica.this;
 		}
-		
-		
-		
 	}
-
 }

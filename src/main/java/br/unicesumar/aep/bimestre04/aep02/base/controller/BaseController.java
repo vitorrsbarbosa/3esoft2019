@@ -7,7 +7,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import javax.validation.constraints.NotNull;
 import java.util.List;
 import java.util.Objects;
 
@@ -21,21 +20,18 @@ public abstract class BaseController<ENTITY extends BaseEntity, REPOSITORY exten
     }
 
     public List<ENTITY> getAll() {
-        if(repo.findAll().contains(null)){
+        if (repo.findAll().contains(null)) {
             /** HTTP 204 -> No Content
-             * Não há conteúdo para enviar para esta solicitação,
-             * mas os cabeçalhos podem ser úteis.
-             * O user-agent pode atualizar seus cabeçalhos em cache para este recurso com os novos.
+             * Não há conteúdo para enviar para esta solicitação
              */
-            ResponseEntity.status(204).body("Não há nada gravado na lista");
+            httpResponse(204, "Não há nada gravado na lista");
             return null;
         }
         /** HTTP 200 -> Continue
          * Requisição bem sucedidade.
          * O recurso foi buscado e transmitido no corpo da mensagem.
          */
-
-        ResponseEntity.status(200).build();
+        httpResponse(200);
         return repo.findAll();
     }
 
@@ -47,10 +43,9 @@ public abstract class BaseController<ENTITY extends BaseEntity, REPOSITORY exten
              * Este código de resposta talvez seja o mais famoso devido à frequência com que acontece na web.
              *
              */
-            ResponseEntity.status(404).body("Não foi possível encontrar nada com este Id");
+            httpResponse(404,"Não foi possível encontrar nada para este Id");
         }
-
-        ResponseEntity.status(200).build();
+        httpResponse(200);
         return repo.findById(id).get();
     }
 
@@ -60,7 +55,7 @@ public abstract class BaseController<ENTITY extends BaseEntity, REPOSITORY exten
             /** HTTP 400 -> Bad request
              * Essa resposta significa que o servidor não entendeu a requisição pois está com uma sintaxe inválida.
              */
-            ResponseEntity.status(400).body("Requisição inválida, verifique novamente o ID");
+            httpResponse(400,"Requisição inválida, verifique o ID");
         }
 
         beforePost(objEntity);
@@ -69,28 +64,35 @@ public abstract class BaseController<ENTITY extends BaseEntity, REPOSITORY exten
         return objEntity.getId();
     }
 
-    public abstract void beforePost(ENTITY objEntity);
-
-    public abstract void afterPost(ENTITY objEntity);
-
     @DeleteMapping("/{id}")
     public void delete(@PathVariable String id, ENTITY objEntity) {
         if(!Objects.equals(id, objEntity.getId())) {
-            ResponseEntity.status(400).body("Requisição inválida, verifique novamente o ID");
+            httpResponse(400,"Requisição inválida, verifique o ID");
         }
-        ResponseEntity.status(200).build();
+        httpResponse(200);
         repo.deleteById(id);
     }
 
     @PutMapping("/{id")
     public ResponseEntity<String> put(@PathVariable String id, @RequestBody ENTITY objEntity) {
         if(!Objects.equals(id, objEntity.getId())) {
-            ResponseEntity.status(400).body("Requisição inválida, verifique novamente o ID");
+            httpResponse(400,"Requisição inválida, verifique o ID");
         }
         if(!repo.findById(id).isPresent()) {
-            return ResponseEntity.status(404).build();
+            httpResponse(404,"não foi possível encontrar");
         }
         repo.save(objEntity);
         return ResponseEntity.status(HttpStatus.OK).build();
+    }
+
+    protected abstract void beforePost(ENTITY objEntity);
+
+    protected abstract void afterPost(ENTITY objEntity);
+
+    private ResponseEntity<String> httpResponse(Integer status, String message) {
+        return ResponseEntity.status(status).body(message);
+    }
+    private ResponseEntity<String> httpResponse(Integer status) {
+        return ResponseEntity.status(status).build();
     }
 }

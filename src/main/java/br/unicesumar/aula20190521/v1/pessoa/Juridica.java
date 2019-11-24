@@ -1,12 +1,10 @@
 package br.unicesumar.aula20190521.v1.pessoa;
 
-import br.unicesumar.aula20190528.v2.pessoa.Pessoa;
-
 import java.util.HashSet;
 import java.util.Set;
 import java.util.UUID;
 
-public class Juridica extends br.unicesumar.aula20190528.v2.pessoa.Pessoa {
+public class Juridica extends Pessoa {
 	private String cnpj;
 	private double capitalSocial;
 	private Set<CotaSociedade> cotasSociedade = new HashSet<>();
@@ -21,16 +19,16 @@ public class Juridica extends br.unicesumar.aula20190528.v2.pessoa.Pessoa {
 		this.cnpj = cnpj;
 		this.capitalSocial = capitalSocial;
 	}
-	public void adicionarSocio(br.unicesumar.aula20190528.v2.pessoa.Pessoa socio, double percentualDeParticipacao) {
+	public void adicionarSocio(Fisica socio, double percentualDeParticipacao) {
 		CotaSociedade novaCota = new CotaSociedade();
 		novaCota.socio = socio;
 		novaCota.percentualDeParticipacao = percentualDeParticipacao;
-		
+
 		double percentualAtual = somarPercentualAtual();
 		if (percentualAtual + percentualDeParticipacao > 100.00) {
 			throw new RuntimeException("A participaço total n�o pode exceder 100%! Percentual atual: " + percentualAtual + ". Voc� tentou adicionar mais " + percentualDeParticipacao);
 		}
-		
+
 		this.cotasSociedade.add(novaCota);
 	}
 	private double somarPercentualAtual() {
@@ -40,7 +38,7 @@ public class Juridica extends br.unicesumar.aula20190528.v2.pessoa.Pessoa {
 		}
 		return percentualAtual;
 	}
-	public void removerSocio(br.unicesumar.aula20190528.v2.pessoa.Pessoa socioParaRemover) {
+	public void removerSocio(Fisica socioParaRemover) {
 		Set<CotaSociedade> aux = new HashSet<>();
 		for (CotaSociedade cota : cotasSociedade) {
 			if (!cota.socio.equals(socioParaRemover)) {
@@ -55,10 +53,10 @@ public class Juridica extends br.unicesumar.aula20190528.v2.pessoa.Pessoa {
 	public String getCnpj() {
 		return cnpj;
 	}
-	
+
 	private class CotaSociedade {
 		private double percentualDeParticipacao;
-		private Pessoa socio;
+		private Fisica socio;
 		@Override
 		public int hashCode() {
 			final int prime = 31;
@@ -88,5 +86,9 @@ public class Juridica extends br.unicesumar.aula20190528.v2.pessoa.Pessoa {
 		private Juridica getOuterType() {
 			return Juridica.this;
 		}
+
+
+
 	}
+
 }

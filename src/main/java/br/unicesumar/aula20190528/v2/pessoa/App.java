@@ -25,12 +25,7 @@ public class App {
 			System.out.println(p.getNome() + ": " + cotasSociedade.get(p).getValor());
 		}
 
-
-
-
 		uniCesumar.removerSocio(arthur);
 		System.out.println("Foi.");
-
 	}
-
 }

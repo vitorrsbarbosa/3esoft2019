@@ -11,7 +11,7 @@ public class Fisica extends Pessoa {
 	public Date getNascidaEm() {
 		return nascidaEm;
 	}
-	
-	
+
+
 
 }

@@ -7,7 +7,7 @@ import java.util.UUID;
 public class Fisica extends Pessoa {
 	private String rg;
 	private String cpf;
-	
+
 	public Fisica(String nome, String rg, String cpf) {
 		//this.nome = nome;
 		super(nome);

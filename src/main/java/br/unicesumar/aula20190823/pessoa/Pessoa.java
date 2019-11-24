@@ -18,19 +18,19 @@ public abstract class Pessoa extends BaseEntity {
 	@Id
 	private String id;
 	private String nome;
-	
+
 	public Pessoa() {
 		id = UUID.randomUUID().toString();
 	}
-	
+
 	public String getId() {
 		return id;
 	}
-	
+
 	public String getNome() {
 		return nome;
 	}
-	
+
 	public void setNome(String nome) {
 		this.nome = nome;
 	}

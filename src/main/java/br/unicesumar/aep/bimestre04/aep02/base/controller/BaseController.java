@@ -21,18 +21,20 @@ public abstract class BaseController<ENTITY extends BaseEntity, REPOSITORY exten
     }
 
     public List<ENTITY> getAll() {
-        if(Objects.isNull(repo)){
+        if(repo.findAll().contains(null)){
             /** HTTP 204 -> No Content
              * Não há conteúdo para enviar para esta solicitação,
              * mas os cabeçalhos podem ser úteis.
              * O user-agent pode atualizar seus cabeçalhos em cache para este recurso com os novos.
              */
             ResponseEntity.status(204).body("Não há nada gravado na lista");
+            return null;
         }
         /** HTTP 200 -> Continue
          * Requisição bem sucedidade.
          * O recurso foi buscado e transmitido no corpo da mensagem.
          */
+
         ResponseEntity.status(200).build();
         return repo.findAll();
     }
@@ -55,29 +57,29 @@ public abstract class BaseController<ENTITY extends BaseEntity, REPOSITORY exten
     @PostMapping
     public String post(@PathVariable String id, @RequestBody ENTITY objEntity) {
         if(!Objects.equals(id, objEntity.getId())) {
-//            Bad request
+            /** HTTP 400 -> Bad request
+             * Essa resposta significa que o servidor não entendeu a requisição pois está com uma sintaxe inválida.
+             */
             ResponseEntity.status(400).body("Requisição inválida, verifique novamente o ID");
         }
+
         beforePost(objEntity);
         repo.save(objEntity);
         afterPost(objEntity);
         return objEntity.getId();
     }
 
-    public void beforePost(ENTITY objEntity) {
-    }
+    public abstract void beforePost(ENTITY objEntity);
 
-    private void afterPost(ENTITY objEntity) {
-    }
+    public abstract void afterPost(ENTITY objEntity);
 
     @DeleteMapping("/{id}")
-    public void delete(@PathVariable String id) {
+    public void delete(@PathVariable String id, ENTITY objEntity) {
+        if(!Objects.equals(id, objEntity.getId())) {
+            ResponseEntity.status(400).body("Requisição inválida, verifique novamente o ID");
+        }
+        ResponseEntity.status(200).build();
         repo.deleteById(id);
-    }
-
-    @DeleteMapping("/")
-    public void deleteAll() {
-        repo.deleteAll();
     }
 
     @PutMapping("/{id")

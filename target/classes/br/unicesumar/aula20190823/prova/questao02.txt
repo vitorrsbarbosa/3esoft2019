@@ -1,0 +1,28 @@
+a.
+    public interface ProdutoRepository extends JpaRepository<Produto, String>{}
+    public interface PedidoRepository extends JpaRepository<Pedido, Long>{}
+
+b.
+    // Produto
+    @OneToMany
+    private List<ItemPedido> itensPedidos;
+
+    //Pedido
+    @ManyToOne
+    private Produto produto;
+
+    O cascade.All não é interessante pois reflete todas as alterações de um em outro, pois um pedido apagado não pode apagar um produto
+
+c.
+    Uma é uma associação(PedidoController - PedidoRepository) e outra é uma dependência(PedidoController - Pedido)
+    a atribuição de um 'public PedidoRepository repo;' dentro do Controller define que o repositório está associado ao controller
+
+d.
+    public Double getValorTotalDosItens() {
+        double total = 0.0
+
+        for(ItemPedido item : itens){
+            total += item.getValorTotal();
+        }
+        return total;
+    }
